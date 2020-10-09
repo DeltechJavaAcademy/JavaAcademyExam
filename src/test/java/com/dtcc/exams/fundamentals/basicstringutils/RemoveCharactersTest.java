@@ -28,8 +28,6 @@ public class RemoveCharactersTest {
     private void test(String string, String charactersToRemove, String expectedString) {
         // when
         String actualString = BasicStringUtils.removeCharacters(string, charactersToRemove);
-
-
         // then
         Assert.assertEquals(expectedString, actualString);
     }

@@ -24,6 +24,7 @@ public class PersonEqualsTest {
         Person person1 = new Person(null, "PersonName", null);
         Person person2 = new Person();
 
+
         // when
         Boolean outcome = person1.equals(person2);
 
@@ -36,7 +37,6 @@ public class PersonEqualsTest {
         // given
         Person person1 = new Person(null, "PersonName", null);
         Person person2 = new Person(null, "PersonName", null);
-
         // when
         Boolean outcome = person1.equals(person2);
 

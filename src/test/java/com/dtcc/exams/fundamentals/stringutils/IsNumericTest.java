@@ -37,7 +37,8 @@ public class IsNumericTest {
 
         // When
         boolean outcome = StringUtils.isNumericString(alphaString);
-
+        System.out.println(outcome);
+        System.out.println(alphaString.matches("[0-9]"));
         // Then
         Assert.assertTrue(outcome);
     }

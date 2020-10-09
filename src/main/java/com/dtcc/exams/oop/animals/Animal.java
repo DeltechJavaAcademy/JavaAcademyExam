@@ -6,8 +6,16 @@ import com.dtcc.exams.oop.Person;
 /**
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Person` class before attempting this class.
  */
-public class Animal {
+public class Animal extends Person{
+
+    Long ID;
+    Person person;
+
+    /*
+    Person handles name and ID and address
+     */
     public Animal() {
+        this(null, null);
     }
 
     /**
@@ -15,23 +23,26 @@ public class Animal {
      * @param owner - owner of animal
      */
     public Animal(Long id, Person owner) {
+      this.ID = id;
+      this.person = owner;
+
     }
 
     public Long getId() {
-        return null;
+        return ID;
     }
 
-    public void setId(Long id) {
-    }
+    public void setId(Long id) {this.ID = id;}
 
     public Person getOwner() {
-        return null;
+        return this.person;
     }
 
     public void setOwner(Person owner) {
+        this.person = owner;
     }
 
     public Address getAddress() {
-        return null;
+        return person.getAddress();
     }
 }
