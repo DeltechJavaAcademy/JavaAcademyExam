@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Person extends Address{
     Long ID;
     String Name;
-    Address Address;
+    Address address;
 
     /**
      * @param id - id of person
@@ -16,13 +16,19 @@ public class Person extends Address{
      * @param address - address of person
      */
     public Person(Long id, String name, Address address) {
-        this.ID = id;
+        if(id == null){
+            this.ID = Long.MIN_VALUE;
+        }else{
+            this.ID = id;
+        }
         this.Name = name;
-        this.setAddress(address);
+        this.address = address;
     }
 
     public Person() {
-        this(null, null, new Address());
+        this.ID = Long.MIN_VALUE;
+        this.Name = "";
+        this.address = new Address();
     }
 
     public Long getId() {
@@ -35,7 +41,7 @@ public class Person extends Address{
     public void setName(String name) {this.Name = name;}
 
     public Address getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(Address address) {
@@ -46,9 +52,25 @@ public class Person extends Address{
         this.setZipcode(address.getZipcode());
     }
 
+    //Person{id=9223372036854775807, name='PersonName', address=Address{addressLine1='line1', addressLine2='line2', city='city', state='state', zipcode='99999'}}"
+    public String toString(){
+        Address address = Person.this.getAddress();
+        String temp = "Person{";
+        temp += "id=" + Objects.toString(getId(), "") + ", ";
+        temp += "name='" + Objects.toString(getName(), "") + "', ";
+        temp+= "address=";
+        temp += "Address{";
+        temp += "addressLine1='" + Objects.toString(address.getAddressLine1(), "") +"', ";
+        temp += "addressLine2='" + Objects.toString(address.getAddressLine2(), "") +"', ";
+        temp += "city='" + Objects.toString(address.getCity(), "") +"', ";
+        temp += "state='" + Objects.toString(address.getState(), "") +"', ";
+        temp += "zipcode='" + Objects.toString(address.getZipcode(), "")+ "'}}";
+        System.out.println(temp);
+        return temp;
+    }
+
     @Override
     public boolean equals(Object o) {
-         return (this.getId() == ((Person)o).getId())
-                 && (this.getName().equals(((Person) o).getName()));
+         return (this.toString().equals(o.toString()));
     }
 }

@@ -46,13 +46,12 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-
-
         boolean bool = true;
         String temp = string.toLowerCase();
         char[] ch= temp.toCharArray();
         for(int i =0; i < string.length();i++) {
-            if (!(ch[i] >= 'a' && ch[i] <= 'z')) {
+            System.out.print(ch[i]);
+            if (!((ch[i] >= 'a' && ch[i] <= 'z') || ch[i] == ' ')) {
                 bool = false;
             }
         }
@@ -64,13 +63,16 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        boolean temp = true;
-        for(int i =0; i < string.length();i++){
-            if(!((int)string.charAt(i) >=48 && (int)string.charAt(i) <=57)){
-                temp = false;
+        boolean bool = true;
+        String temp = string.toLowerCase();
+        char[] ch= temp.toCharArray();
+        for(int i =0; i < string.length();i++) {
+            System.out.print(ch[i]);
+            if (!((ch[i] >= '0' && ch[i] <= '9') || ch[i] == ' ')) {
+                bool = false;
             }
         }
-        return temp;
+        return bool;
     }
 
     /**
