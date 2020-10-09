@@ -4,6 +4,8 @@ import com.dtcc.exams.collections.Inventory;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class AddItemToInventroy {
 
     @Test
@@ -27,8 +29,12 @@ public class AddItemToInventroy {
     }
 
     private void test(String... itemsToAddToInventory) {
+
         Inventory inventory = new Inventory();
         for(String item : itemsToAddToInventory) {
+            System.out.println(Arrays.toString(itemsToAddToInventory));
+            if (item=="" || null==item) {continue;};
+            item=item.trim();
             int preAddQuantity = inventory.getItemQuantity(item);
             int postAddQuantity = preAddQuantity + 1;
             int expected = postAddQuantity;
