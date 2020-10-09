@@ -67,7 +67,7 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        if(o==this){return true;}
+       // if(o==this){return true;}
         if(!(o instanceof Address)) {return false;}
         Address a = (Address)o;
         return addressLine1.equals(a.addressLine1)

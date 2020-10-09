@@ -54,7 +54,7 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        if(this==o){return true;}
+        //if(this==o){return true;}
         if(!(o instanceof Person)) {return false;}
         Person p = (Person)o;
         if((id== null && p.id==null) || (name==null && p.name==null) || (address==null && p.getAddress()==null))
