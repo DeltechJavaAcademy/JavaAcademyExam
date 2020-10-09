@@ -57,7 +57,7 @@ public class Person {
     @Override
     public boolean equals(Object o) {
 
-        if(((null == this.id && ((Person)o).id == null) || this.id == ((Person)o).id)
+        if(((null == this.id && ((Person)o).id == null) || this.id.equals(((Person)o).id))
             && ((this.name == null && ((Person)o).name == null) || this.name.equals(((Person)o).name))
             && ((this.address == null && ((Person)o).address == null) || this.address.equals(((Person)o).address))){
             return true;

@@ -19,7 +19,7 @@ public class Animal {
     }
 
     /**
-     * @param id - id of animal
+     * @param id    - id of animal
      * @param owner - owner of animal
      */
     public Animal(Long id, Person owner) {
@@ -46,5 +46,14 @@ public class Animal {
     public Address getAddress() {
         return this.address;
     }
-}
 
+
+    public boolean equals(Object o) {
+        if (((null == this.id && ((Animal) o).id == null) || this.id == ((Animal) o).id) &&
+                (null == this.person && o == null) || this.person.equals(((Animal) o).person) &&
+                (null == this.address && o == null) || this.address.equals(((Animal) o).address)) {
+            return true;
+        }
+        return false;
+    }
+}
