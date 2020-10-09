@@ -1,6 +1,6 @@
 package com.dtcc.exams.fundamentals.predicateutilities;
 
-import com.dtcc.exams.fundamentals.PredicateUtilities;
+import com.dtcc.exams.fundamentals.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,7 +33,7 @@ public class IsMultipleOfNTest {
 
     private void test(Integer value, Integer multiple, Boolean expectedOutcome) {
         // when
-        Boolean actualOutcome = PredicateUtilities.isMultipleOfN(value, multiple);
+        Boolean actualOutcome = StringUtils.PredicateUtilities.isMultipleOfN(value, multiple);
 
         // then
         Assert.assertEquals(actualOutcome, expectedOutcome);
