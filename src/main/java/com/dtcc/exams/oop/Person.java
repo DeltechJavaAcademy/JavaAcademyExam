@@ -67,7 +67,7 @@ public class Person {
     }
 
     public String toString(){
-        return "Person{id=" + this.id + ", name='" +this.name + "', address=" + this.address.toString();
+        return "Person{id=" + this.id + ", name='" +this.name + "', address=" + this.address.toString() + "}";
 
     }
 }
