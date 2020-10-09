@@ -16,7 +16,13 @@ public class Inventory {
      * @param strings list of strings to add / remove / fetch from
      */
     public Inventory(List<String> strings) {
-
+        for (String item: strings) {
+            if(Invent.containsKey(item)){
+                Invent.put(item, Invent.get(item) + 1);
+            } else {
+                Invent.put(item, 1);
+            }
+        }
     }
 
     /**
@@ -40,9 +46,9 @@ public class Inventory {
      */
     public void removeItemFromInventory(String item) {
         if(Invent.containsKey(item)){
-            Invent.remove(item, Invent.get(item) - 1);
+            Invent.put(item, Invent.get(item) - 1);
     }else if (!Invent.containsKey(item)){
-            Invent.remove(item, -1);
+            //Invent.remove(item, -1);
         }
     }
 
