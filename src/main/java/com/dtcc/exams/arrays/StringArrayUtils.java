@@ -10,14 +10,21 @@ public class StringArrayUtils {
      * @return an array with all elements between `startingIndex` and `endingIndex`
      */
     public static String[] getSubArray(String[] arrayToBeSpliced, int startingIndex, int endingIndex) {
-        String[] subarray = Arrays.asList(arrayToBeSpliced)
-                .subList(startingIndex, endingIndex)
-                .toArray(new String[0]);
 
-        return subarray;//new String[]{Arrays.toString(subarray)};
+        if(startingIndex < 0 && endingIndex < 0){
+            throw new IllegalArgumentException();
+        }else {
+            String[] subarray = new String[endingIndex- startingIndex + 1];
+            subarray = Arrays.asList(arrayToBeSpliced)
+                    .subList(startingIndex, endingIndex)
+                    .toArray(new String[0]);
+            return subarray;
+            //new String[]{Arrays.toString(subarray)};
+
+            
 
 
-    }
+    }}
 
 
     /**
@@ -26,11 +33,12 @@ public class StringArrayUtils {
      * @return an array all elements between after `startingIndex`
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
-        String[] newString = new String[arrayToBeSpliced.length-startingIndex];
-        try{
-        for (int i = startingIndex + 1; i < newString.length; i++) {
-            newString[i] = arrayToBeSpliced[i];
-        }}catch(IllegalArgumentException e){ }
-        return newString;
-    }
-}
+        if(startingIndex < 0 && startingIndex > arrayToBeSpliced.length){
+            throw new IllegalArgumentException();
+        }else {
+            String[] subarray = new String[arrayToBeSpliced.length- startingIndex + 1];
+            subarray = Arrays.asList(arrayToBeSpliced)
+                    .subList(startingIndex, arrayToBeSpliced.length)
+                    .toArray(new String[0]);
+            return subarray;
+}}}
