@@ -65,7 +65,6 @@ public class Person extends Address{
         temp += "city='" + Objects.toString(address.getCity(), "") +"', ";
         temp += "state='" + Objects.toString(address.getState(), "") +"', ";
         temp += "zipcode='" + Objects.toString(address.getZipcode(), "")+ "'}}";
-        System.out.println(temp);
         return temp;
     }
 

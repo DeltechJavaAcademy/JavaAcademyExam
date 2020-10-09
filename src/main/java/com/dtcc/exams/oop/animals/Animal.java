@@ -8,10 +8,14 @@ import com.dtcc.exams.oop.Person;
  */
 public class Animal extends Person{
 
+    Long ID;
+    Person person;
+
     /*
     Person handles name and ID and address
      */
     public Animal() {
+        this(null, null);
     }
 
     /**
@@ -19,23 +23,26 @@ public class Animal extends Person{
      * @param owner - owner of animal
      */
     public Animal(Long id, Person owner) {
+      this.ID = id;
+      this.person = owner;
+
     }
 
     public Long getId() {
-        return this.getId();
+        return ID;
     }
 
-    public void setId(Long id) {this.setId(id);
-    }
+    public void setId(Long id) {this.ID = id;}
 
     public Person getOwner() {
-        return null;
+        return this.person;
     }
 
     public void setOwner(Person owner) {
+        this.person = owner;
     }
 
     public Address getAddress() {
-        return null;
+        return person.getAddress();
     }
 }
