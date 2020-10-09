@@ -13,7 +13,12 @@ public class Person {
      * @param address - address of person
      */
     public Person(Long id, String name, Address address) {
-        this.id=id;
+        if(id == null){
+            this.id = Long.MIN_VALUE;
+        }else{
+            this.id = id;
+        }
+       // this.id=id;
         this.name=name;
         this.address=address;
 
@@ -52,12 +57,14 @@ public class Person {
         if(this==o){return true;}
         if(!(o instanceof Person)) {return false;}
         Person p = (Person)o;
-        if((id== null && p.id==null) || (name==null && p.name==null) || (address==null && p.getAddress()==null)){
-            return true;
-        }
+        if((id== null && p.id==null) || (name==null && p.name==null) || (address==null && p.getAddress()==null))
+        { return true;}
+
         return  id.equals(p.id)
                 && name.equals(p.name)
-                && address.equals(p.getAddress());
+               && address.equals(p.getAddress());
+
+
     }
 
     public String toString(){
