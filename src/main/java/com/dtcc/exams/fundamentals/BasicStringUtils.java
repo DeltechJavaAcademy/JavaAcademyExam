@@ -1,5 +1,7 @@
 package com.dtcc.exams.fundamentals;
 
+import java.util.regex.Pattern;
+
 public class BasicStringUtils {
     /**
      * @param string1 - Base string to be added to
@@ -7,7 +9,7 @@ public class BasicStringUtils {
      * @return concatenation of `string1` and `string2`
      */
     public static String concatentate(String string1, String string2) {
-        return null;
+        return string1 + string2;
     }
 
     /**
@@ -15,7 +17,11 @@ public class BasicStringUtils {
      * @return an identical string with characters in reverse order
      */
     public static String reverse(String string1) {
-        return null;
+        StringBuilder emad = new StringBuilder();
+        emad.append(string1);
+        emad = emad.reverse();
+        string1 = emad.toString();
+        return string1;
     }
 
     /**
@@ -24,7 +30,16 @@ public class BasicStringUtils {
      * @return concatenation of the reverse of `string1` and reverse of `string2`
      */
     public static String reverseThenConcatenate(String string1, String string2) {
-        return null;
+        StringBuilder emad = new StringBuilder();
+        emad.append(string1);
+        emad = emad.reverse();
+        string1 = emad.toString();
+
+        StringBuilder emad1 = new StringBuilder();
+        emad1.append(string2);
+        emad1 = emad1.reverse();
+        string2 = emad1.toString();
+        return string1 + string2;
     }
 
     /**
@@ -33,7 +48,16 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return null;
+//        if(string.contains(charactersToRemove)){
+//            String tempWord = charactersToRemove + " ";
+//            string = string.replaceAll(tempWord,"");
+//            tempWord = " " + charactersToRemove;
+//            string = string.replaceAll(tempWord, "");
+//        }
+        Pattern pattern = Pattern.compile(charactersToRemove);
+        string.replaceAll(pattern.toString(), "");
+
+        return string;
     }
 
     /**
@@ -42,6 +66,14 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+            string.replaceAll(charactersToRemove, "");
+            byte[] strAsByteArray = string.getBytes();
+            byte[] result = new byte[strAsByteArray.length];
+
+            for (int i = 0; i < strAsByteArray.length; i++)
+                result[i] = strAsByteArray[strAsByteArray.length - i - 1];
+
+
+        return new String(result);
     }
 }
