@@ -7,14 +7,14 @@ import com.dtcc.exams.oop.Person;
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Person` class before attempting this class.
  */
 public class Animal {
-    private long id;
+    private Long id;
     private Person person;
     private Address address;
 
     public Animal() {
-        this.id = id;
-        this.person = person;
-        this.address = address;
+        this.id = null;//Long.parseLong(null);
+        this.person = null;
+        this.address = null;
 
     }
 

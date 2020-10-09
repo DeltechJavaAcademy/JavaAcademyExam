@@ -4,7 +4,7 @@ package com.dtcc.exams.oop;
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Address` class before attempting this class
  */
 public class Person {
-    private long id;
+    private Long id;
     private String name;
     private Address address;
 
@@ -56,8 +56,10 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        if(this.id == ((Person)o).id && this.name == ((Person)o).name && ((this.address == null && ((Person)o).address ==
-                null) || this.address.equals(((Person)o).address))){
+
+        if(((null == this.id && ((Person)o).id == null) || this.id == ((Person)o).id)
+            && ((this.name == null && ((Person)o).name == null) || this.name.equals(((Person)o).name))
+            && ((this.address == null && ((Person)o).address == null) || this.address.equals(((Person)o).address))){
             return true;
         }else {
             return false;
