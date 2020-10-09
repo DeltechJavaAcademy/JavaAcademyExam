@@ -1,7 +1,20 @@
 package com.dtcc.exams.oop;
 
 public class Address {
+
+    private String addressLine1;
+    private String addressLine2;
+    private String city;
+    private String state;
+    private String zipcode;
+
     public Address() {
+
+        this.addressLine1 = "";
+        this.addressLine2= "";
+        this.city= "";
+        this.state= "";
+        this.zipcode= "";
     }
 
     /**
@@ -51,6 +64,11 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        if (this.addressLine1 == ((Address)o).addressLine1 && this.addressLine2 == ((Address)o).addressLine2 &&
+        this.city == ((Address) o).city  && this.state == ((Address) o).state &&
+                this.zipcode == ((Address) o).zipcode){
+            return true;
+        }
+        return  false;
     }
 }
