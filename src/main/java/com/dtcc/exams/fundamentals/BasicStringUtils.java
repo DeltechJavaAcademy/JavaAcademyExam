@@ -1,5 +1,7 @@
 package com.dtcc.exams.fundamentals;
 
+import java.util.Arrays;
+
 public class BasicStringUtils {
     /**
      * @param string1 - Base string to be added to
@@ -39,17 +41,16 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-//        char[] ch = charactersToRemove.toCharArray();
-//        for(int i = 0; i < ch.length; i++){
-//            if(string.contains(charactersToRemove)){
-//                string.replaceAll();
-//
-//            }
-//        }
-//        if(ch)
+        String[] arr = charactersToRemove.split("");
+        System.out.println(Arrays.toString(arr));
+        for(String s : arr){
+            string = string.replaceAll(s, "");
+            System.out.println(string);
+        }
+        return string;
 
 
-        return string.replaceAll(charactersToRemove, "");
+
     }
 
     /**
@@ -58,6 +59,13 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+        String[] arr = charactersToRemove.split("");
+        System.out.println(Arrays.toString(arr));
+        for(String s : arr){
+            string = string.replaceAll(s, "");
+            System.out.println(string);
+        }
+        StringBuffer sb  = new StringBuffer(string);
+        return sb.reverse().toString();
     }
 }
