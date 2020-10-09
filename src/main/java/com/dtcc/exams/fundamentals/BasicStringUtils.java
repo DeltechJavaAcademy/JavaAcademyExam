@@ -1,5 +1,7 @@
 package com.dtcc.exams.fundamentals;
 
+import java.util.Arrays;
+
 public class BasicStringUtils {
     /**
      * @param string1 - Base string to be added to
@@ -7,7 +9,7 @@ public class BasicStringUtils {
      * @return concatenation of `string1` and `string2`
      */
     public static String concatentate(String string1, String string2) {
-        return null;
+        return string1 + string2;
     }
 
     /**
@@ -15,7 +17,9 @@ public class BasicStringUtils {
      * @return an identical string with characters in reverse order
      */
     public static String reverse(String string1) {
-        return null;
+        StringBuffer rev = new StringBuffer(string1);
+        return String.valueOf(rev.reverse());
+
     }
 
     /**
@@ -24,7 +28,11 @@ public class BasicStringUtils {
      * @return concatenation of the reverse of `string1` and reverse of `string2`
      */
     public static String reverseThenConcatenate(String string1, String string2) {
-        return null;
+        StringBuffer rev1 = new StringBuffer(string1);
+        rev1.reverse();
+        StringBuffer rev2 = new StringBuffer(string2);
+        rev2.reverse();
+        return rev1.toString() + rev2.toString();
     }
 
     /**
@@ -33,7 +41,16 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return null;
+        String[] arr = charactersToRemove.split("");
+        System.out.println(Arrays.toString(arr));
+        for(String s : arr){
+            string = string.replaceAll(s, "");
+            System.out.println(string);
+        }
+        return string;
+
+
+
     }
 
     /**
@@ -42,6 +59,13 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+        String[] arr = charactersToRemove.split("");
+        System.out.println(Arrays.toString(arr));
+        for(String s : arr){
+            string = string.replaceAll(s, "");
+            System.out.println(string);
+        }
+        StringBuffer sb  = new StringBuffer(string);
+        return sb.reverse().toString();
     }
 }
