@@ -52,6 +52,9 @@ public class Person {
         if(this==o){return true;}
         if(!(o instanceof Person)) {return false;}
         Person p = (Person)o;
+        if((id== null && p.id==null) || (name==null && p.name==null) || (address==null && p.getAddress()==null)){
+            return true;
+        }
         return  id.equals(p.id)
                 && name.equals(p.name)
                 && address.equals(p.getAddress());
