@@ -33,9 +33,12 @@ public class StringArrayUtils {
      * @return an array all elements between after `startingIndex`
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
-        if(startingIndex < 0 && startingIndex > arrayToBeSpliced.length){
+        if(startingIndex < 0 ) {
+            throw new IndexOutOfBoundsException();
+        }else if (startingIndex > arrayToBeSpliced.length){
             throw new IllegalArgumentException();
-        }else {
+        }
+        else {
             String[] subarray = new String[arrayToBeSpliced.length- startingIndex + 1];
             subarray = Arrays.asList(arrayToBeSpliced)
                     .subList(startingIndex, arrayToBeSpliced.length)
