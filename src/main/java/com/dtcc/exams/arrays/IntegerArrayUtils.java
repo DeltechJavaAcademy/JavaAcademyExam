@@ -1,13 +1,21 @@
 package com.dtcc.exams.arrays;
 
 public class IntegerArrayUtils {
+
+
     /**
      * @param integerArray - array to have value added to it
      * @param valueToBeAdded - value to be added to the end of the array
      * @return - identical array with one additional element of `valueToBeAdded` at the end of the array
      */
     public static Integer[] add(Integer[] integerArray, Integer valueToBeAdded) {
-        return null;
+        Integer[] newArray = new Integer[integerArray.length + 1];
+        for (int i = 0; i < integerArray.length; i++){
+            newArray[i] = integerArray[i];
+        }
+        newArray[newArray.length-1] = valueToBeAdded;
+
+        return newArray;
     }
 
     /**
@@ -17,7 +25,8 @@ public class IntegerArrayUtils {
      * @return `integerArray` with `valueToBeInserted` at index number `indexToInsertAt`
      */
     public static Integer[] replace(Integer[] integerArray, int indexToInsertAt, Integer valueToBeInserted) {
-        return null;
+        integerArray[indexToInsertAt] = valueToBeInserted;
+        return integerArray;
     }
 
     /**
@@ -26,7 +35,8 @@ public class IntegerArrayUtils {
      * @return element located at `indexToFetch`
      */
     public static Integer get(Integer[] integerArray, Integer indexToFetch) {
-        return null;
+        Integer value = integerArray[indexToFetch];
+        return value;
     }
 
     /**
@@ -34,7 +44,15 @@ public class IntegerArrayUtils {
      * @return identical array with even-values incremented by 1 and odd-values decremented by 1
      */
     public static Integer[] incrementEvenDecrementOdd(Integer[] integerArray) {
-        return null;
+        for (int i = 0; i < integerArray.length; i++){
+            if (integerArray[i] % 2 == 0){
+                integerArray[i]+=1;
+            }
+            else{
+                integerArray[i]-=1;
+            }
+        }
+        return integerArray;
     }
 
     /**
@@ -42,7 +60,12 @@ public class IntegerArrayUtils {
      * @return identical array with even-values incremented by 1
      */
     public static Integer[] incrementEven(Integer[] integerArray) {
-        return null;
+        for (int i = 0; i < integerArray.length; i++){
+            if (integerArray[i] % 2 == 0){
+                integerArray[i]+=1;
+            }
+        }
+        return integerArray;
     }
 
     /**
@@ -50,6 +73,11 @@ public class IntegerArrayUtils {
      * @return identical array with odd-values decremented by 1
      */
     public static Integer[] decrementOdd(Integer[] input) {
-        return null;
+        for (int i = 0; i < input.length; i++){
+            if (input[i] % 2 != 0){
+                input[i]-=1;
+            }
+        }
+        return input;
     }
 }

@@ -7,7 +7,8 @@ public class BasicStringUtils {
      * @return concatenation of `string1` and `string2`
      */
     public static String concatentate(String string1, String string2) {
-        return null;
+        string1 += string2;
+        return string1;
     }
 
     /**
@@ -15,7 +16,11 @@ public class BasicStringUtils {
      * @return an identical string with characters in reverse order
      */
     public static String reverse(String string1) {
-        return null;
+        String string2 = "";
+        for(int i = string1.length()-1; i >= 0; i--){
+            string2 += string1.charAt(i);
+        }
+        return string2;
     }
 
     /**
@@ -24,7 +29,16 @@ public class BasicStringUtils {
      * @return concatenation of the reverse of `string1` and reverse of `string2`
      */
     public static String reverseThenConcatenate(String string1, String string2) {
-        return null;
+        String string3 = "";
+        for(int i = string1.length()-1; i >= 0; i--){
+            string3 += string1.charAt(i);
+        }
+        String string4 = "";
+        for(int i = string2.length()-1; i >= 0; i--){
+            string4 += string2.charAt(i);
+        }
+        String string5 = string3 + string4;
+        return string5;
     }
 
     /**
@@ -33,7 +47,10 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return null;
+        for(int i = 0; i < charactersToRemove.length(); i++){
+            string = string.replaceAll(charactersToRemove.charAt(i)+"", "");
+        }
+        return string;
     }
 
     /**
@@ -42,6 +59,13 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+        for(int i = 0; i < charactersToRemove.length(); i++){
+            string = string.replaceAll(charactersToRemove.charAt(i)+"", "");
+        }
+        String string2 = "";
+        for(int i = string.length()-1; i >= 0; i--){
+            string2 += string.charAt(i);
+        }
+        return string2;
     }
 }

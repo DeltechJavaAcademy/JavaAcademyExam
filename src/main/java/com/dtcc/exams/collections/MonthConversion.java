@@ -1,31 +1,57 @@
 package com.dtcc.exams.collections;
 
+import java.util.HashMap;
+import java.util.Set;
+
 /**
  * Use a map to solve
  */
 public class MonthConversion {
-    /**
-     * @param monthNumber - ordinal of month in the year; i.e. January = 1, February = 2
-     * @param monthName - name of month
-     */
-    public void add(Integer monthNumber, String monthName) {
 
+    HashMap<Integer, String> conversionMap = new HashMap<>();
+    /**
+   //  * @param monthNumber - ordinal of month in the year; i.e. January = 1, February = 2
+   //  * @param monthName - name of month
+     */
+
+    public MonthConversion(){
+        this.conversionMap = conversionMap;
     }
+
+    public void add(Integer monthNumber, String monthName) {
+        this.conversionMap.put(monthNumber, monthName);
+    }
+
+
 
     /**
      * @param monthNumber - ordinal of month in the year
      * @return the name of the respective month
      */
     public String getName(Integer monthNumber) {
-        throw new NullPointerException();
+        String monthName = null;
+        if(this.conversionMap.containsKey(monthNumber)){
+            monthName = this.conversionMap.get(monthNumber);
+        }
+//        else{
+//            throw new NullPointerException();
+//        }
+        return monthName;
     }
 
     /**
      * @param monthName - name of month
      * @return - the ordinal of the month in the year
      */
-    public int getNumber(String monthName) {
-        return (Integer)null;
+    public Integer getNumber(String monthName) {
+        Set<Integer> keys = this.conversionMap.keySet();
+        Integer numberResult = null;
+        for(Integer number : keys){
+            if(this.conversionMap.get(number).equals(monthName)){
+                numberResult = number;
+            }
+        }
+        return numberResult;
     }
 
     /**
@@ -33,7 +59,11 @@ public class MonthConversion {
      * @return true if the monthNumber is in the keySet
      */
     public Boolean isValidNumber(Integer monthNumber) {
-        return null;
+        boolean flag = false;
+        if(this.conversionMap.containsKey(monthNumber)){
+            flag = true;
+        }
+        return flag;
     }
 
     /**
@@ -41,14 +71,24 @@ public class MonthConversion {
      * @return true if the monthName is in the valueSet
      */
     public Boolean isValidMonth(String monthName) {
-        return null;
+        boolean flag = false;
+        Set<Integer> keys = this.conversionMap.keySet();
+        for(Integer number : keys){
+            if(this.conversionMap.get(number).equals(monthName)){
+                flag = true;
+            }
+        }
+        return flag;
     }
 
     /**
      * @return number of entries in this mapping
      */
     public Integer size() {
-        return -1;
+        int size = 0;
+        Set keys = this.conversionMap.keySet();
+        size = keys.size();
+        return size;
     }
 
     /**
@@ -56,6 +96,6 @@ public class MonthConversion {
      * @param monthName - name of month
      */
     public void update(Integer monthNumber, String monthName) {
-
+        this.conversionMap.put(monthNumber, monthName);
     }
 }
