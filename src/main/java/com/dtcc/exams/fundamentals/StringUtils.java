@@ -63,12 +63,18 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        if(string != null && string.matches("-/@#$%^&_+=()!*")){
-            return true;
+        String specialCharacters=" !#$%&'()*+,-./:;<=>?@[]^_`{|}";
+
+            for (int i = 0; i < string.length(); i++) {
+                if (specialCharacters.contains(Character.toString(string.charAt(i))))
+                {
+                return true;
         }else{
             return false;
         }
         //-/@#$%^&_+=()
         //!&*(
     }
-}
+    return false;
+    }}
+
