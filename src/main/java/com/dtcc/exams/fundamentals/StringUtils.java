@@ -8,7 +8,11 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        String temp ="";
+        for(int i =amountOfPadding - stringToBePadded.length(); i > 0; i--){
+            temp += " ";
+        }
+        return temp + stringToBePadded;
     }
 
     /**
@@ -17,7 +21,11 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        String temp =stringToBePadded;
+        for(int i =amountOfPadding - stringToBePadded.length(); i > 0; i--){
+            temp += " ";
+        }
+        return temp;
     }
 
     /**
@@ -26,7 +34,11 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        String temp ="";
+        for(int i =numberOfTimeToRepeat; i > 0; i--){
+            temp += stringToBeRepeated;
+        }
+        return temp;
     }
 
     /**
@@ -34,7 +46,17 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+
+
+        boolean bool = true;
+        String temp = string.toLowerCase();
+        char[] ch= temp.toCharArray();
+        for(int i =0; i < string.length();i++) {
+            if (!(ch[i] >= 'a' && ch[i] <= 'z')) {
+                bool = false;
+            }
+        }
+        return bool;
     }
 
     /**
@@ -42,7 +64,13 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        boolean temp = true;
+        for(int i =0; i < string.length();i++){
+            if(!((int)string.charAt(i) >=48 && (int)string.charAt(i) <=57)){
+                temp = false;
+            }
+        }
+        return temp;
     }
 
     /**
@@ -50,6 +78,6 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+         return (string.matches("[!-*]+"));
     }
 }

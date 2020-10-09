@@ -5,6 +5,6 @@ package com.dtcc.exams.oop.animals;
  */
 public class Dog {
     public String speak() {
-        return null;
+        return "Woof!\nWoof!";
     }
 }

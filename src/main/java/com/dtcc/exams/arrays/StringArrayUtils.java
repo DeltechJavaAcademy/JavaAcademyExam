@@ -1,5 +1,7 @@
 package com.dtcc.exams.arrays;
 
+import java.util.Arrays;
+
 public class StringArrayUtils {
     /**
      * @param arrayToBeSpliced - array to be evaluated
@@ -8,7 +10,7 @@ public class StringArrayUtils {
      * @return an array with all elements between `startingIndex` and `endingIndex`
      */
     public static String[] getSubArray(String[] arrayToBeSpliced, int startingIndex, int endingIndex) {
-        return null;
+        return Arrays.copyOfRange(arrayToBeSpliced,startingIndex,endingIndex);
     }
 
 
@@ -18,6 +20,6 @@ public class StringArrayUtils {
      * @return an array all elements between after `startingIndex`
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
-        return null;
+        return Arrays.copyOfRange(arrayToBeSpliced, startingIndex, arrayToBeSpliced.length);
     }
 }

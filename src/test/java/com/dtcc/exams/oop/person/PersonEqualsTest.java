@@ -36,7 +36,9 @@ public class PersonEqualsTest {
         // given
         Person person1 = new Person(null, "PersonName", null);
         Person person2 = new Person(null, "PersonName", null);
-
+        System.out.println(person1.getId());
+        System.out.println(person2.getId());
+        System.out.println((person1.getName().equals(((Person) person2).getName())));
         // when
         Boolean outcome = person1.equals(person2);
 
