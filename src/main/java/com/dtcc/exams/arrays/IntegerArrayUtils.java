@@ -1,13 +1,31 @@
 package com.dtcc.exams.arrays;
 
+import java.util.ArrayList;
+
 public class IntegerArrayUtils {
+
+    Integer[] integerArray = {};
+
     /**
      * @param integerArray - array to have value added to it
      * @param valueToBeAdded - value to be added to the end of the array
      * @return - identical array with one additional element of `valueToBeAdded` at the end of the array
      */
     public static Integer[] add(Integer[] integerArray, Integer valueToBeAdded) {
-        return null;
+
+        Integer[] integerArray2 = new Integer[8];
+
+        ArrayList<Integer> intList = new ArrayList<Integer>(integerArray.length);
+        for (int i : integerArray)
+        {
+            intList.add(i);
+        }
+
+        intList.add(valueToBeAdded);
+
+        intList.toArray(integerArray2);
+
+        return integerArray2;
     }
 
     /**
@@ -17,7 +35,10 @@ public class IntegerArrayUtils {
      * @return `integerArray` with `valueToBeInserted` at index number `indexToInsertAt`
      */
     public static Integer[] replace(Integer[] integerArray, int indexToInsertAt, Integer valueToBeInserted) {
-        return null;
+
+        integerArray[indexToInsertAt] = valueToBeInserted;
+
+        return integerArray;
     }
 
     /**
@@ -26,7 +47,12 @@ public class IntegerArrayUtils {
      * @return element located at `indexToFetch`
      */
     public static Integer get(Integer[] integerArray, Integer indexToFetch) {
-        return null;
+
+        Integer elementToReturn = 0;
+
+        elementToReturn = integerArray[indexToFetch];
+
+        return elementToReturn;
     }
 
     /**
@@ -34,7 +60,22 @@ public class IntegerArrayUtils {
      * @return identical array with even-values incremented by 1 and odd-values decremented by 1
      */
     public static Integer[] incrementEvenDecrementOdd(Integer[] integerArray) {
-        return null;
+
+        Integer[] integerArray3 = integerArray.clone();
+
+        for (int i = 0; i < integerArray3.length; i++) {
+
+            // If current element is odd positioned
+            if ((i + 1) % 2 == 1) {
+                integerArray3[i]--;
+
+                // If even positioned
+            }else {
+                integerArray3[i]++;
+            }
+        }
+
+        return integerArray3;
     }
 
     /**
@@ -42,7 +83,20 @@ public class IntegerArrayUtils {
      * @return identical array with even-values incremented by 1
      */
     public static Integer[] incrementEven(Integer[] integerArray) {
-        return null;
+
+        for (int i = 0; i < integerArray.length; i++) {
+
+            // If current element is odd positioned
+            if ((i + 1) % 2 == 1)
+                continue;
+
+                // If even positioned
+            else
+                integerArray[i]++;
+
+        }
+
+        return integerArray;
     }
 
     /**
@@ -50,6 +104,21 @@ public class IntegerArrayUtils {
      * @return identical array with odd-values decremented by 1
      */
     public static Integer[] decrementOdd(Integer[] input) {
-        return null;
+
+        Integer[] integerArray4 = input.clone();
+
+        for (int i = 0; i < input.length; i++) {
+
+            // If current element is odd positioned
+            if ((i + 1) % 2 == 1)
+                integerArray4[i]--;
+
+                // If even positioned
+            else
+                continue;
+
+        }
+
+        return integerArray4;
     }
 }
