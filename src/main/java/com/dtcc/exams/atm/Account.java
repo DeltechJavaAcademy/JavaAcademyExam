@@ -1,8 +1,7 @@
 package com.dtcc.exams.atm;
 
 public class Account {
-    double balance = 0.0;
-    double amount = 100.0;
+    double balance;
     public Account(double v) {
         double balance = v;
     }
@@ -13,25 +12,27 @@ public class Account {
     }
 
     public boolean closeAccount() {
-        if(balance == 10.0){
+        if(balance <= 0.0){
             return true;
         }else
         return false;
     }
 
     public void deposit(double v) {
-        balance += amount;
+        balance += v;
     }
 
     public Double withdraw(double v) {
-
-        if (amount > balance) {
-            return null;
-        }else
-            return balance -= amount;
+        if (balance >= v) {
+            balance -= v;
+        }
+            return balance;
     }
 
     public void transfer(Account b, double v) {
-        balance += amount;
+        if(balance >= v){
+            balance -= v;
+            b.balance += v;
+        }
     }
 }

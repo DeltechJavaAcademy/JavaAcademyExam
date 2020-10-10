@@ -8,7 +8,7 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return String.format("%" + amountOfPadding + "     "+ stringToBePadded);
+        return null;
     }
 
     /**
@@ -26,7 +26,11 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        StringBuilder sBuild = new StringBuilder();
+        for(int i = 0; i < numberOfTimeToRepeat; i++){
+            sBuild.append(stringToBeRepeated);
+        }
+        return sBuild.toString();
     }
 
     /**
@@ -34,7 +38,14 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        char[] anotherChar = string.toCharArray();
+        for (int i = 0; i < anotherChar.length; i++) {
+            if (Character.isAlphabetic(anotherChar[i])) {
+                return true;
+            }else if(!Character.isAlphabetic(anotherChar[i]))
+                return false;
+        }
+        return true;
     }
 
     /**
@@ -56,7 +67,15 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        String specialChars = "/*!@#$%^&*()_+|{}[]";
+        for (int i = 0; i < string.length(); i++) {
+            char ch = string.charAt(i);
+            if (specialChars.contains((Character.toString(ch)))) {
+                return true;
+            }else
+                return false;
+        }
+        return false;
     }
 
     public static class PredicateUtilities {
