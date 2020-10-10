@@ -1,6 +1,7 @@
 package com.dtcc.exams.fundamentals;
 
 
+
 public class StringUtils {
     /**
      * @param stringToBePadded - string value to be flushed right
@@ -8,7 +9,8 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+
+        return String.format("%" + amountOfPadding + "s", stringToBePadded);
     }
 
     /**
@@ -17,7 +19,7 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        return String.format("%" + -amountOfPadding + "s", stringToBePadded);
     }
 
     /**
@@ -26,7 +28,8 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        String repeated = new String(new char[numberOfTimeToRepeat]).replace("\0", stringToBeRepeated);
+        return repeated;
     }
 
     /**
@@ -34,7 +37,11 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        string = string.replaceAll("\\s+", "");
+        if(string.chars().allMatch(Character::isLetter))
+        return true;
+        else
+            return false;
     }
 
     /**
@@ -42,7 +49,11 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        string = string.replaceAll("\\s+", "");
+        if(string.chars().allMatch(Character::isDigit))
+            return true;
+        else
+            return false;
     }
 
     /**
@@ -50,6 +61,11 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        string = string.replaceAll("\\s+", "");
+        if(string != null && string.chars().noneMatch(Character::isAlphabetic) && string.chars().noneMatch(Character::isDigit))
+            return true;
+        else
+            return false;
+
     }
 }

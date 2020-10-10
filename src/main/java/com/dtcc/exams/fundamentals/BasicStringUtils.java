@@ -48,16 +48,8 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-//        if(string.contains(charactersToRemove)){
-//            String tempWord = charactersToRemove + " ";
-//            string = string.replaceAll(tempWord,"");
-//            tempWord = " " + charactersToRemove;
-//            string = string.replaceAll(tempWord, "");
-//        }
-        Pattern pattern = Pattern.compile(charactersToRemove);
-        string.replaceAll(pattern.toString(), "");
 
-        return string;
+        return string.replaceAll(charactersToRemove, "");
     }
 
     /**
@@ -73,7 +65,7 @@ public class BasicStringUtils {
             for (int i = 0; i < strAsByteArray.length; i++)
                 result[i] = strAsByteArray[strAsByteArray.length - i - 1];
 
-
-        return new String(result);
+            String string1 = new String(result);
+        return string1;
     }
 }
