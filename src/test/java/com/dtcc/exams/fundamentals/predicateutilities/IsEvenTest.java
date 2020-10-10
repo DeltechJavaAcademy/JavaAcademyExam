@@ -1,6 +1,6 @@
 package com.dtcc.exams.fundamentals.predicateutilities;
 
-import com.dtcc.exams.fundamentals.PredicateUtilities;
+import com.dtcc.exams.fundamentals.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class IsEvenTest {
 
     private void test(Integer value, Boolean expectedOutcome) {
         // when
-        Boolean actualOutcome = PredicateUtilities.isEven(value);
+        Boolean actualOutcome = StringUtils.PredicateUtilities.isEven(value);
 
         // then
         Assert.assertEquals(actualOutcome, expectedOutcome);

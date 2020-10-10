@@ -9,35 +9,63 @@ public class Person {
      * @param name - name of person
      * @param address - address of person
      */
+    private Long id;
+    private String name;
+    private Address address = new Address();
     public Person(Long id, String name, Address address) {
+        this.id = Long.MIN_VALUE;
+        this.name = name;
+        this.address = address;
     }
 
     public Person() {
+        this.address = new Address();
+        this.name ="";
+        this.id = Long.MIN_VALUE;
     }
 
     public Long getId() {
-        return null;
+
+        return this.id;
     }
 
     public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
-        return null;
+
+        return this.name;
     }
 
     public void setName(String name) {
+        this.name = name;
     }
 
     public Address getAddress() {
-        return null;
+
+        return this.address;
     }
 
     public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        if (o == this){
+            return true;
+        }else if(o instanceof Person){
+            Person perse = (Person) o;
+            return id.equals(perse.id) &&
+                    name.equals(perse.name)&&
+                    address.equals(perse.address);
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{id="+this.id+", name='"+this.name+"', address="+this.address+"}";
     }
 }
