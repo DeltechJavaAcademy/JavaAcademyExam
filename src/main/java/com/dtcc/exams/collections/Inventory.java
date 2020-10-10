@@ -1,6 +1,7 @@
 package com.dtcc.exams.collections;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Use a map to keep track of inventory in a store
@@ -9,8 +10,9 @@ public class Inventory {
     /**
      * @param strings list of strings to add / remove / fetch from
      */
+    public Map<String, Integer> Integer;
     public Inventory(List<String> strings) {
-
+//        List<String> list = new List<String>();
     }
 
     /**
