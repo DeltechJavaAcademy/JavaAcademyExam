@@ -6,7 +6,7 @@ package com.dtcc.exams.oop;
 public class Person {
     private Long id;
     private String name;
-    private Address address=new Address();
+    private Address address;
     /**
      * @param id - id of person
      * @param name - name of person
@@ -63,7 +63,6 @@ public class Person {
         return  id.equals(p.id)
                 && name.equals(p.name)
                && address.equals(p.getAddress());
-
 
     }
 

@@ -6,9 +6,9 @@ import com.dtcc.exams.oop.Person;
 /**
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Person` class before attempting this class.
  */
-public class Animal {
+public class Animal{
     private Long id;
-    private Person owner=null;
+    private Person owner;
 
     public Animal() {
        this(null,null);
@@ -32,6 +32,8 @@ public class Animal {
     }
 
     public Person getOwner() {
+        if(this.owner==null)
+        {this.owner= new Person();}
         return this.owner;
     }
 
@@ -40,6 +42,6 @@ public class Animal {
     }
 
     public Address getAddress() {
-        return this.owner.getAddress();
-    }
+            return this.owner.getAddress();
+        }
 }
